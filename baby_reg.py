@@ -1,5 +1,5 @@
 # ==================================================
-# Project: baby_reg1.py
+# Project: baby_reg.py
 # Description: Regression + Visualization (tips dataset)
 # Author: David Ford
 # Date: 2026-04-24
