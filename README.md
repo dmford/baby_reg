@@ -8,20 +8,17 @@ A simple Python script that simulates data, runs a linear regression, and output
 - Figures: `./figures/`
 
 ## How to Run
-```bash
-python baby_reg.py
-Dependencies
-numpy
-pandas
-matplotlib
-statsmodels
-Notes
+Run the script from the project folder:
+python/baby_reg.py
 
-This is a minimal, educational implementation focused on:
+## Dependencies
+- numpy
+- pandas
+- matplotlib
+- statsmodels
 
-clean structure
-reproducibility
-basic statistical interpretation
-Author
+## Notes
+This is a minimal, educational implementation focused on clean structure, reproducibility, and basic statistical interpretation.
 
+## Author
 David Ford
