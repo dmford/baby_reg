@@ -10,7 +10,7 @@ A simple Python script that simulates data, runs a linear regression, and output
 ## How to Run
 - Run the script from the project folder:
 ```bash
-python/baby_reg.py
+baby_reg.py
 ```
 
 ## Dependencies
