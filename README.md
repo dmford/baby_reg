@@ -1,47 +1,27 @@
 # baby_reg
 
-## Project Overview
+## Overview
+A simple Python script that simulates data, runs a linear regression, and outputs results and a visualization. This project is intended as a clean introduction to regression workflows and reproducible analysis.
 
-`baby_reg.py` is an introductory regression + visualization project that uses the classic Seaborn `tips` dataset to demonstrate core empirical workflow in Python.
+## Outputs
+- Tables: `./tables/`
+- Figures: `./figures/`
 
-This script walks through:
-- Data loading and inspection
-- Feature engineering
-- Multiple OLS regression specifications
-- Regression table generation
-- Automated table/graph saving
-- Visualization of key relationships
+## How to Run
+```bash
+python baby_reg.py
+Dependencies
+numpy
+pandas
+matplotlib
+statsmodels
+Notes
 
-The project is designed as a practical foundation for learning reproducible regression analysis and organized script structure. :contentReference[oaicite:0]{index=0}
+This is a minimal, educational implementation focused on:
 
----
+clean structure
+reproducibility
+basic statistical interpretation
+Author
 
-# Main Research Question
-
-**What factors explain tipping behavior, and how do variables like bill size, party size, gender, smoking status, day, and time affect tip outcomes?**
-
----
-
-# Dataset
-
-## Source:
-- Seaborn built-in `tips` dataset
-
-## Key Variables:
-- `total_bill`
-- `tip`
-- `sex`
-- `smoker`
-- `day`
-- `time`
-- `size`
-
----
-
-# Feature Engineering
-
-The script creates:
-
-## `tip_share`
-```text
-tip / total_bill
+David Ford
