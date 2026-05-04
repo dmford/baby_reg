@@ -20,7 +20,7 @@ import pandas as pd
 import seaborn as sns
 import statsmodels.formula.api as smf
 
-# Tables and graphs
+# Tables and figures
 import matplotlib.pyplot as plt
 from statsmodels.iolib.summary2 import summary_col
 
@@ -43,15 +43,15 @@ script_name = script_path.stem
 
 # Output directories
 tables_dir = script_dir / "tables"
-graphs_dir = script_dir / "graphs"
+figures_dir = script_dir / "figures"
 
 # creating output directories if they don't exist
 tables_dir.mkdir(exist_ok=True)
-graphs_dir.mkdir(exist_ok=True)
+figures_dir.mkdir(exist_ok=True)
 
-# Output counters for table/graph naming (start at 1)
+# Output counters for table/figure naming (start at 1)
 table_counter = 1
-graph_counter = 1
+figure_counter = 1
 
 def save_table(content, name_prefix, table_counter, tables_dir):
     filename = tables_dir / f"{name_prefix}_table{table_counter}.txt"
@@ -63,11 +63,11 @@ def save_table(content, name_prefix, table_counter, tables_dir):
     return table_counter + 1
 
 
-def save_graph(fig, name_prefix, graph_counter, graphs_dir):
-    filename = graphs_dir / f"{name_prefix}_graph{graph_counter}.png"
+def save_figure(fig, name_prefix, figure_counter, figures_dir):
+    filename = figures_dir / f"{name_prefix}_figure{figure_counter}.png"
     fig.savefig(filename, dpi=300, bbox_inches="tight")
-    print(f"Saved graph: {filename}")
-    return graph_counter + 1
+    print(f"Saved figure: {filename}")
+    return figure_counter + 1
 
 
 # ==================================================
@@ -150,7 +150,7 @@ table_counter = save_table(
 
 
 # ==================================================
-# 4. VISUALIZATION 
+# 4. FIGURES + VISUALIZATION 
 # ==================================================
 
 # This section creates six simple visual checks:
@@ -179,7 +179,7 @@ pred = pd.DataFrame({"total_bill": x})
 axes[0].scatter(df["total_bill"], df["tip_pct"], alpha=0.3)
 axes[0].plot(x, g1_model.predict(pred), color="red")
 
-# giving the graph a title + axis labels 
+# giving the figure a title + axis labels 
 axes[0].set_title("G1: Bill vs Tip %")
 axes[0].set_xlabel("Total Bill")
 axes[0].set_ylabel("Tip %")
@@ -198,7 +198,7 @@ pred2 = pd.DataFrame({"size": x2})
 axes[1].scatter(df["size"], df["tip_pct"], alpha=0.3)
 axes[1].plot(x2, g2_model.predict(pred2), color="red")
 
-# giving the graph a title + axis labels 
+# giving the figure a title + axis labels 
 axes[1].set_title("G2: Size vs Tip %")
 axes[1].set_xlabel("Party Size") 
 axes[1].set_ylabel("Tip %")
@@ -220,7 +220,7 @@ axes[2].scatter(df["total_bill"], df["tip_pct"], alpha=0.3)
 axes[2].plot(x, m_male.predict(pred), label="Male")
 axes[2].plot(x, m_female.predict(pred), label="Female")
 
-# giving the graph a legend + title + axis labels 
+# giving the figure a legend + title + axis labels 
 axes[2].legend()
 axes[2].set_title("G3: Gender Split")
 axes[2].set_xlabel("Total Bill")
@@ -241,7 +241,7 @@ axes[3].scatter(df["total_bill"], df["tip_pct"], alpha=0.3)
 axes[3].plot(x, m_yes.predict(pred), label="Smoker")
 axes[3].plot(x, m_no.predict(pred), label="Non-Smoker")
 
-# giving the graph a legend + title + axis labels 
+# giving the figure a legend + title + axis labels 
 axes[3].legend()
 axes[3].set_title("G4: Smoker Split")
 axes[3].set_xlabel("Total Bill")
@@ -258,7 +258,7 @@ for day in df["day"].unique():
 # scatter + fitted line
 axes[4].scatter(df["total_bill"], df["tip_pct"], alpha=0.3)
 
-# giving the graph a legend + title + axis labels 
+# giving the figure a legend + title + axis labels 
 axes[4].legend()
 axes[4].set_title("G5: Day of Week Split")
 axes[4].set_xlabel("Total Bill")
@@ -279,18 +279,18 @@ axes[5].plot(
     color="red"
 )
 
-# giving the graph a title + axis labels 
+# giving the figure a title + axis labels 
 axes[5].set_title("G6: Kitchen Sink Fit")
 axes[5].set_xlabel("Actual Tip ($)")
 axes[5].set_ylabel("Predicted Tip ($)")
 
 # --- Finalize and save figure ---
 plt.tight_layout()
-graph_counter = save_graph(
+figure_counter = save_figure(
     fig,
     script_name,
-    graph_counter,
-    graphs_dir
+    figure_counter,
+    figures_dir
 )
 
 # display figure
