@@ -23,4 +23,4 @@ baby_reg.py
 This is a minimal, educational implementation focused on clean structure, reproducibility, and basic statistical interpretation.
 
 ## Author
-David Ford
+David Ford, assisted by ChatGPT
